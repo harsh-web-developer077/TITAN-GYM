@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://titan-gym-pha0.onrender.com/sitemap.xml
