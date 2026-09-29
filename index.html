@@ -3,7 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TITAN GYM | Pure Powerhouse & Combat Fitness</title>
+
+  <!-- Primary SEO Meta Tags -->
+  <title>TITAN GYM | Pure Powerhouse & Combat Fitness | Memberships & Nutrition</title>
+  <meta name="title" content="TITAN GYM | Pure Powerhouse & Combat Fitness" />
+  <meta name="description" content="Join TITAN GYM - Elite strength training, powerlifting racks, certified coaches, and authentic Whey Protein store. Memberships start at ₹600/month. Claim your 1-day free trial pass today!" />
+  <meta name="keywords" content="gym near me, fitness center, TITAN GYM, bodybuilding, weight training, whey protein store, gym membership 600, workout pass" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph / WhatsApp Preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://titan-gym.onrender.com/" />
+  <meta property="og:title" content="TITAN GYM | Pure Powerhouse & Combat Fitness" />
+  <meta property="og:description" content="Memberships start at ₹600/month. 100% authentic Whey Protein in-house. Book your free day workout pass now!" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80" />
+
+  <!-- Scripts & Fonts -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -346,7 +361,7 @@
       </div>
     </section>
 
-    <!-- VIEW 5: INSTANT LEAD & TRIAL PASS BOOKING (DUAL GUARANTEED NOTIFICATION) -->
+    <!-- VIEW 5: INSTANT LEAD & TRIAL PASS BOOKING -->
     <section id="view-join" class="tab-panel w-full">
       <div class="max-w-xl mx-auto p-8 sm:p-10 rounded-3xl bg-titan-card border-2 border-titan-neon glow-cyan-box">
         <div class="text-center mb-6">
@@ -392,7 +407,6 @@
 
   </main>
 
-  <!-- BOTTOM BAR -->
   <!-- FOOTER -->
   <footer class="border-t border-titan-border bg-titan-pitch py-6 text-center text-xs text-zinc-500">
     <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
@@ -404,11 +418,12 @@
       </div>
     </div>
   </footer>
+
   <!-- SCRIPT -->
   <script>
     lucide.createIcons();
 
-    // 1. Instant Tab Switching (Zero lag, Zero scroll)
+    // 1. Instant Tab Switching
     function switchTab(tabId) {
       document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
       document.querySelectorAll('.nav-tab').forEach(b => {
@@ -427,13 +442,13 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Helper: Pricing card click redirects to pass form with preselected option
+    // Helper: Plan auto selection
     function selectPlanAndGo(planValue) {
       document.getElementById('leadPlan').value = planValue;
       switchTab('join');
     }
 
-    // 2. BMI Engine
+    // 2. BMI Calculation
     document.getElementById('bmiForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const w = parseFloat(document.getElementById('weight').value);
@@ -456,9 +471,7 @@
       }
     });
 
-    // 3. FAIL-PROOF NOTIFICATION SYSTEM:
-    // (a) WhatsApp direct redirect - Client ke phone par lead 100% guarantee ke saath bajegi
-    // (b) FormSubmit background trigger
+    // 3. Lead Dispatch via WhatsApp
     document.getElementById('leadForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const name = document.getElementById('leadName').value;
@@ -467,11 +480,10 @@
 
       document.getElementById('statusAlert').classList.remove('hidden');
 
-      // WhatsApp direct message composition (Replace with Gym Owner's real 10 digit number)
+      // WhatsApp direct message composition
       const gymOwnerNumber = "919876543210"; 
       const waMessage = encodeURIComponent(`*NEW TITAN GYM LEAD*%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Requirement:* ${plan}%0A%0APlease issue the workout pass.`);
       
-      // Auto open WhatsApp in 1 sec
       setTimeout(() => {
         window.open(`https://wa.me/${gymOwnerNumber}?text=${waMessage}`, '_blank');
       }, 700);
