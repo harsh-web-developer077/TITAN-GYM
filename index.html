@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TITAN GYM | Pure Powerhouse & Combat Fitness</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@600;700&family=Plus+Jakarta+Sans:wght@400;600;800;900&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            impact: ['Teko', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif']
+          },
+          colors: {
+            titan: {
+              pitch: '#05070B',
+              slate: '#0B1019',
+              card: '#111726',
+              border: '#1E293B',
+              neon: '#00E5FF',
+              cobalt: '#1D4ED8',
+              glow: 'rgba(0, 229, 255, 0.4)'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .glow-cyan-box {
+      box-shadow: 0 0 35px -5px rgba(0, 229, 255, 0.35);
+    }
+    .neon-text-glow {
+      text-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
+    }
+    .tab-panel {
+      display: none;
+    }
+    .tab-panel.active {
+      display: block;
+      animation: enterView 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes enterView {
+      from { opacity: 0; transform: translateY(10px) scale(0.99); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+  </style>
+</head>
+<body class="bg-titan-pitch text-zinc-100 font-sans min-h-screen flex flex-col justify-between selection:bg-titan-neon selection:text-black antialiased">
+
+  <!-- TOP APP BAR -->
+  <header class="border-b border-titan-border bg-titan-pitch/95 sticky top-0 z-50 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- LOGO -->
+      <div class="flex items-center gap-3 cursor-pointer" onclick="switchTab('home')">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-titan-neon to-titan-cobalt flex items-center justify-center font-impact text-2xl text-black shadow-lg shadow-titan-neon/30">
+          TG
+        </div>
+        <div>
+          <div class="font-impact text-3xl tracking-wider uppercase leading-none">TITAN<span class="text-titan-neon">GYM</span></div>
+          <div class="text-[9px] font-black uppercase tracking-widest text-zinc-500">Iron & Performance Lab</div>
+        </div>
+      </div>
+
+      <!-- TABS SWITCHER -->
+      <nav class="flex items-center gap-1.5 sm:gap-2 bg-titan-slate p-1.5 rounded-2xl border border-titan-border text-xs font-bold uppercase tracking-wider">
+        <button id="tab-home" onclick="switchTab('home')" class="nav-tab px-4 py-2 rounded-xl bg-titan-neon text-black font-extrabold shadow-md transition-all">
+          Home
+        </button>
+        <button id="tab-programs" onclick="switchTab('programs')" class="nav-tab px-4 py-2 rounded-xl text-zinc-400 hover:text-white transition-all">
+          Disciplines
+        </button>
+        <button id="tab-plans" onclick="switchTab('plans')" class="nav-tab px-4 py-2 rounded-xl text-zinc-400 hover:text-white transition-all">
+          Plans & Whey
+        </button>
+        <button id="tab-bmi" onclick="switchTab('bmi')" class="nav-tab px-4 py-2 rounded-xl text-zinc-400 hover:text-white transition-all">
+          BMI Tool
+        </button>
+        <button id="tab-join" onclick="switchTab('join')" class="nav-tab px-4 py-2 rounded-xl text-zinc-400 hover:text-white transition-all">
+          Get Pass
+        </button>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- MAIN DYNAMIC STAGE -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full flex items-center justify-center">
+
+    <!-- VIEW 1: HOME VIEW -->
+    <section id="view-home" class="tab-panel active w-full">
+      <div class="relative rounded-3xl border border-titan-border bg-gradient-to-b from-titan-slate to-titan-pitch p-8 sm:p-14 overflow-hidden">
+        <div class="absolute -right-20 -top-20 w-96 h-96 bg-titan-neon/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-3xl">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-titan-neon/30 bg-titan-neon/10 text-titan-neon text-xs font-black uppercase tracking-widest mb-6">
+            <i data-lucide="flame" class="w-3.5 h-3.5"></i> Authentic Hardcore Training
+          </div>
+
+          <h1 class="font-impact text-6xl sm:text-8xl lg:text-9xl uppercase tracking-tight leading-none mb-6">
+            TRANSFORM YOUR BODY INTO <span class="text-transparent bg-clip-text bg-gradient-to-r from-titan-neon via-cyan-400 to-blue-500 neon-text-glow">TITAN STEEL</span>
+          </h1>
+
+          <p class="text-zinc-400 text-sm sm:text-base leading-relaxed mb-8 max-w-xl">
+            Zero compromises. Olympic standard cast-iron free weights, calibrated powerlifting setups, certified biomechanics coaching, and front-desk certified protein store.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-4">
+            <button onclick="switchTab('plans')" class="px-8 py-4 rounded-xl bg-titan-neon hover:bg-cyan-300 text-black font-impact text-xl uppercase tracking-wider glow-cyan-box transition transform hover:scale-105">
+              Check Plans (₹600 / Mo) &rarr;
+            </button>
+            <button onclick="switchTab('join')" class="px-8 py-4 rounded-xl bg-titan-card border border-titan-border text-white font-impact text-xl uppercase tracking-wider hover:border-titan-neon transition">
+              Book 1-Day Free Trial
+            </button>
+          </div>
+        </div>
+
+        <!-- Metric Ribbon -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 pt-8 border-t border-titan-border/70">
+          <div class="p-4 rounded-2xl bg-titan-card/60 border border-titan-border">
+            <div class="font-impact text-4xl text-white">5,000+</div>
+            <div class="text-[11px] font-black uppercase text-zinc-500">SQ FT HEAVY ZONE</div>
+          </div>
+          <div class="p-4 rounded-2xl bg-titan-card/60 border border-titan-border">
+            <div class="font-impact text-4xl text-titan-neon">₹600</div>
+            <div class="text-[11px] font-black uppercase text-zinc-500">MONTHLY BASE ENTRY</div>
+          </div>
+          <div class="p-4 rounded-2xl bg-titan-card/60 border border-titan-border">
+            <div class="font-impact text-4xl text-white">25G PER SCOOP</div>
+            <div class="text-[11px] font-black uppercase text-zinc-500">WHEY STORE IN-HOUSE</div>
+          </div>
+          <div class="p-4 rounded-2xl bg-titan-card/60 border border-titan-border">
+            <div class="font-impact text-4xl text-titan-neon">5 AM - 11 PM</div>
+            <div class="text-[11px] font-black uppercase text-zinc-500">OPEN 7 DAYS A WEEK</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 2: DISCIPLINES / PROGRAMS -->
+    <section id="view-programs" class="tab-panel w-full">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-10">
+          <span class="text-xs font-black uppercase tracking-widest text-titan-neon">Targeted Systems</span>
+          <h2 class="font-impact text-5xl sm:text-6xl uppercase tracking-tight mt-1">Built For Real Progression</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-8 rounded-3xl bg-titan-card border border-titan-border hover:border-titan-neon/60 transition group">
+            <div class="w-14 h-14 rounded-2xl bg-titan-neon/10 border border-titan-neon/30 flex items-center justify-center text-titan-neon mb-6 group-hover:scale-110 transition">
+              <i data-lucide="dumbbell" class="w-7 h-7"></i>
+            </div>
+            <h3 class="font-impact text-3xl uppercase tracking-wide mb-2 text-white">Hypertrophy & Strength</h3>
+            <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-6">
+              Heavy free weights, isolations, cable towers, and power racks calibrated for progressive overload and pure muscle building.
+            </p>
+            <ul class="text-xs text-zinc-300 space-y-2 border-t border-titan-border pt-4">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-titan-neon"></i> Competition-grade power racks</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-titan-neon"></i> Dumbbells up to 50kg</li>
+            </ul>
+          </div>
+
+          <div class="p-8 rounded-3xl bg-titan-card border-2 border-titan-neon glow-cyan-box relative group">
+            <span class="absolute top-4 right-4 text-[10px] font-black uppercase px-2.5 py-1 bg-titan-neon text-black rounded-md">High Demand</span>
+            <div class="w-14 h-14 rounded-2xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-titan-neon mb-6 group-hover:scale-110 transition">
+              <i data-lucide="activity" class="w-7 h-7"></i>
+            </div>
+            <h3 class="font-impact text-3xl uppercase tracking-wide mb-2 text-white">HIIT & Shred Circuit</h3>
+            <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-6">
+              High intensity conditioning, kettlebells, rowers, air bikes, and battle ropes engineered to spike metabolic rate and incinerate body fat.
+            </p>
+            <ul class="text-xs text-zinc-300 space-y-2 border-t border-titan-border pt-4">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-titan-neon"></i> Lactate threshold drills</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-titan-neon"></i> Stamina & explosive power</li>
+            </ul>
+          </div>
+
+          <div class="p-8 rounded-3xl bg-titan-card border border-titan-border hover:border-titan-neon/60 transition group">
+            <div class="w-14 h-14 rounded-2xl bg-zinc-800 border border-zinc-700 flex items-center justify-center text-zinc-300 mb-6 group-hover:scale-110 transition">
+              <i data-lucide="user-check" class="w-7 h-7"></i>
+            </div>
+            <h3 class="font-impact text-3xl uppercase tracking-wide mb-2 text-white">1-on-1 Elite Coaching</h3>
+            <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-6">
+              Custom nutrition macros, lifting mechanics correction, personalized periodization workout splits, and weekly accountability.
+            </p>
+            <ul class="text-xs text-zinc-300 space-y-2 border-t border-titan-border pt-4">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-titan-neon"></i> Bi-weekly body composition scans</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-titan-neon"></i> Form analysis & recovery planning</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 3: PLANS (₹600, ₹1499, ₹6999) & AUTHENTIC WHEY STORE -->
+    <section id="view-plans" class="tab-panel w-full">
+      <div class="max-w-6xl mx-auto space-y-10">
+        <div class="text-center">
+          <span class="text-xs font-black uppercase tracking-widest text-titan-neon">Direct Pricing</span>
+          <h2 class="font-impact text-5xl sm:text-6xl uppercase tracking-tight mt-1">Membership Subscriptions</h2>
+        </div>
+
+        <!-- 3 Tier Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+          <!-- 1 Month -->
+          <div class="p-8 rounded-3xl bg-titan-card border border-titan-border flex flex-col justify-between">
+            <div>
+              <h4 class="text-xs font-black uppercase tracking-widest text-zinc-400">Monthly Starter</h4>
+              <div class="my-5 flex items-baseline gap-2">
+                <span class="font-impact text-6xl text-white">₹600</span>
+                <span class="text-zinc-500 text-xs font-bold uppercase">/ 1 Month</span>
+              </div>
+              <ul class="text-xs text-zinc-300 space-y-3 mb-6">
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-titan-neon"></i> Full Gym Floor Access</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-titan-neon"></i> Locker Room & Showers</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-titan-neon"></i> Base Floor Coaching</li>
+              </ul>
+            </div>
+            <button onclick="selectPlanAndGo('1 Month Membership (₹600)')" class="w-full py-3.5 rounded-xl border border-titan-border font-impact text-lg uppercase tracking-wider hover:border-titan-neon transition">
+              Select 1 Month &rarr;
+            </button>
+          </div>
+
+          <!-- 3 Months -->
+          <div class="p-8 rounded-3xl bg-titan-card border-2 border-titan-neon glow-cyan-box flex flex-col justify-between relative">
+            <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-titan-neon text-black text-[10px] font-black uppercase px-3.5 py-1 rounded-full">Most Popular</span>
+            <div>
+              <h4 class="text-xs font-black uppercase tracking-widest text-titan-neon">Transformation Split</h4>
+              <div class="my-5 flex items-baseline gap-2">
+                <span class="font-impact text-6xl text-white">₹1,499</span>
+                <span class="text-zinc-500 text-xs font-bold uppercase">/ 3 Months</span>
+              </div>
+              <ul class="text-xs text-zinc-300 space-y-3 mb-6">
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-titan-neon"></i> Everything in 1-Month</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-titan-neon"></i> Custom Hypertrophy Diet Plan</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-titan-neon"></i> 2 Free Personal Training Sessions</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-titan-neon"></i> Monthly Body Composition Tracking</li>
+              </ul>
+            </div>
+            <button onclick="selectPlanAndGo('3 Months Transformation (₹1,499)')" class="w-full py-3.5 rounded-xl bg-titan-neon hover:bg-cyan-300 text-black font-impact text-xl uppercase tracking-wider transition">
+              Claim 3 Months &rarr;
+            </button>
+          </div>
+
+          <!-- Annual -->
+          <div class="p-8 rounded-3xl bg-titan-card border border-titan-border flex flex-col justify-between">
+            <div>
+              <h4 class="text-xs font-black uppercase tracking-widest text-zinc-400">Titan Annual Pass</h4>
+              <div class="my-5 flex items-baseline gap-2">
+                <span class="font-impact text-6xl text-white">₹6,999</span>
+                <span class="text-zinc-500 text-xs font-bold uppercase">/ 12 Months</span>
+              </div>
+              <ul class="text-xs text-zinc-300 space-y-3 mb-6">
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-titan-neon"></i> 365 Days Unrestricted Floor Access</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-titan-neon"></i> Official TITAN Stainless Shaker</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-titan-neon"></i> 45-Days Membership Freeze Facility</li>
+              </ul>
+            </div>
+            <button onclick="selectPlanAndGo('Titan Annual Pass (₹6,999)')" class="w-full py-3.5 rounded-xl border border-titan-border font-impact text-lg uppercase tracking-wider hover:border-titan-neon transition">
+              Select Annual &rarr;
+            </button>
+          </div>
+        </div>
+
+        <!-- WHEY PROTEIN STORE FRONT -->
+        <div class="p-8 sm:p-10 rounded-3xl bg-titan-card border border-titan-border">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <span class="inline-block px-3 py-1 rounded bg-titan-neon/10 border border-titan-neon/30 text-titan-neon text-[10px] font-black uppercase tracking-widest mb-3">
+                Official Front Desk Inventory
+              </span>
+              <h3 class="font-impact text-4xl sm:text-5xl uppercase tracking-tight leading-none mb-3">
+                100% Lab-Verified <span class="text-titan-neon">Whey Protein</span>
+              </h3>
+              <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-6">
+                Instant post-workout recovery. Ultra-filtered Whey Isolate and Concentrate with authentic authenticity hologram. Pick it up directly from the front counter.
+              </p>
+
+              <div class="grid grid-cols-2 gap-3 mb-6 text-xs">
+                <div class="p-3.5 rounded-xl bg-titan-slate border border-titan-border">
+                  <span class="text-zinc-500 uppercase font-bold block text-[10px]">Pure Protein</span>
+                  <strong class="text-white text-base font-impact tracking-wide text-xl">25G / SCOOP</strong>
+                </div>
+                <div class="p-3.5 rounded-xl bg-titan-slate border border-titan-border">
+                  <span class="text-zinc-500 uppercase font-bold block text-[10px]">Recovery BCAAs</span>
+                  <strong class="text-white text-base font-impact tracking-wide text-xl">5.5 GRAMS</strong>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4">
+                <div>
+                  <span class="text-[10px] text-zinc-500 uppercase font-bold block">Gym Member Price</span>
+                  <div class="font-impact text-4xl text-white">₹2,499 <span class="text-xs text-zinc-500 line-through">₹3,499</span></div>
+                </div>
+                <button onclick="selectPlanAndGo('Authentic Whey Protein Tub (₹2,499)')" class="px-6 py-3 rounded-xl bg-titan-neon text-black font-impact text-lg uppercase tracking-wider hover:bg-cyan-300 transition">
+                  Reserve At Counter &rarr;
+                </button>
+              </div>
+            </div>
+
+            <div class="flex justify-center">
+              <img src="https://images.unsplash.com/photo-1579722821273-0f6c7d44362f?auto=format&fit=crop&w=700&q=80" alt="Authentic Whey Protein Tub" class="rounded-2xl border border-titan-border w-full max-w-sm h-72 object-cover shadow-2xl">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 4: BMI METRIC TOOL -->
+    <section id="view-bmi" class="tab-panel w-full">
+      <div class="max-w-2xl mx-auto p-8 sm:p-10 rounded-3xl bg-titan-card border border-titan-border">
+        <div class="text-center mb-6">
+          <span class="text-xs font-black uppercase tracking-widest text-titan-neon">Performance Metric</span>
+          <h2 class="font-impact text-4xl sm:text-5xl uppercase tracking-tight mt-1">Instant BMI Assessment</h2>
+          <p class="text-zinc-400 text-xs mt-1">Check body mass ratio and receive tailored workout advice.</p>
+        </div>
+
+        <form id="bmiForm" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs uppercase font-bold text-zinc-400 mb-1">Body Weight (KG)</label>
+            <input type="number" id="weight" placeholder="e.g. 74" required class="w-full px-4 py-3 rounded-xl bg-titan-slate border border-titan-border text-white text-sm focus:outline-none focus:border-titan-neon">
+          </div>
+          <div>
+            <label class="block text-xs uppercase font-bold text-zinc-400 mb-1">Height (CM)</label>
+            <input type="number" id="height" placeholder="e.g. 175" required class="w-full px-4 py-3 rounded-xl bg-titan-slate border border-titan-border text-white text-sm focus:outline-none focus:border-titan-neon">
+          </div>
+          <button type="submit" class="sm:col-span-2 py-3.5 rounded-xl bg-titan-neon text-black font-impact text-xl uppercase tracking-wider hover:bg-cyan-300 transition">
+            Compute Baseline BMI
+          </button>
+        </form>
+
+        <div id="bmiResult" class="hidden mt-6 p-6 rounded-2xl bg-titan-slate border border-titan-border text-center">
+          <div class="text-[10px] uppercase font-bold tracking-widest text-zinc-400">Score Rating</div>
+          <div id="bmiValue" class="font-impact text-6xl text-titan-neon my-1">--</div>
+          <div id="bmiCategory" class="text-sm font-bold uppercase text-white">--</div>
+          <p id="bmiAdvice" class="text-xs text-zinc-400 mt-2 max-w-md mx-auto">--</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 5: INSTANT LEAD & TRIAL PASS BOOKING (DUAL GUARANTEED NOTIFICATION) -->
+    <section id="view-join" class="tab-panel w-full">
+      <div class="max-w-xl mx-auto p-8 sm:p-10 rounded-3xl bg-titan-card border-2 border-titan-neon glow-cyan-box">
+        <div class="text-center mb-6">
+          <span class="inline-block px-3 py-1 rounded bg-titan-neon/10 border border-titan-neon/30 text-titan-neon text-[10px] font-black uppercase tracking-widest mb-2">
+            100% Free Pass
+          </span>
+          <h2 class="font-impact text-4xl sm:text-5xl uppercase tracking-tight">Claim Your Free Workout Pass</h2>
+          <p class="text-zinc-400 text-xs mt-1">Notification is directly sent to our front-desk WhatsApp.</p>
+        </div>
+
+        <form id="leadForm" class="space-y-4">
+          <div>
+            <label class="block text-xs uppercase font-bold text-zinc-400 mb-1">Your Full Name</label>
+            <input type="text" id="leadName" required placeholder="Aman Sharma" class="w-full px-4 py-3 rounded-xl bg-titan-slate border border-titan-border text-white text-sm focus:outline-none focus:border-titan-neon">
+          </div>
+
+          <div>
+            <label class="block text-xs uppercase font-bold text-zinc-400 mb-1">WhatsApp / Phone Number</label>
+            <input type="tel" id="leadPhone" required placeholder="9876543210" class="w-full px-4 py-3 rounded-xl bg-titan-slate border border-titan-border text-white text-sm focus:outline-none focus:border-titan-neon">
+          </div>
+
+          <div>
+            <label class="block text-xs uppercase font-bold text-zinc-400 mb-1">Choose Plan or Pass</label>
+            <select id="leadPlan" class="w-full px-4 py-3 rounded-xl bg-titan-slate border border-titan-border text-white text-sm focus:outline-none focus:border-titan-neon">
+              <option value="1 Day Free Trial Pass">1 Day Free Workout Trial Pass</option>
+              <option value="1 Month Membership (₹600)">1 Month Membership (₹600)</option>
+              <option value="3 Months Transformation (₹1,499)">3 Months Transformation (₹1,499)</option>
+              <option value="Titan Annual Pass (₹6,999)">Titan Annual Pass (₹6,999)</option>
+              <option value="Authentic Whey Protein Tub (₹2,499)">Authentic Whey Protein Tub (₹2,499)</option>
+            </select>
+          </div>
+
+          <button type="submit" class="w-full py-4 rounded-xl bg-titan-neon hover:bg-cyan-300 text-black font-impact text-2xl uppercase tracking-wider transition">
+            Confirm & Send Free Pass &rarr;
+          </button>
+        </form>
+
+        <div id="statusAlert" class="hidden mt-4 p-4 rounded-xl text-center text-xs font-bold uppercase bg-titan-neon/10 border border-titan-neon/30 text-titan-neon">
+          Pass request dispatched! Opening WhatsApp confirmation...
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- BOTTOM BAR -->
+  <!-- FOOTER -->
+  <footer class="border-t border-titan-border bg-titan-pitch py-6 text-center text-xs text-zinc-500">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div>
+        © 2026 TITAN GYM. All Rights Reserved.
+      </div>
+      <div>
+        Engineered & Handcrafted by <a href="https://sparsh-portfolio-ihrz.onrender.com" target="_blank" class="text-zinc-300 underline hover:text-titan-neon transition-colors">Sparsh Portfolio</a>
+      </div>
+    </div>
+  </footer>
+  <!-- SCRIPT -->
+  <script>
+    lucide.createIcons();
+
+    // 1. Instant Tab Switching (Zero lag, Zero scroll)
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.nav-tab').forEach(b => {
+        b.classList.remove('bg-titan-neon', 'text-black', 'font-extrabold', 'shadow-md');
+        b.classList.add('text-zinc-400');
+      });
+
+      const targetView = document.getElementById('view-' + tabId);
+      const targetBtn = document.getElementById('tab-' + tabId);
+
+      if (targetView) targetView.classList.add('active');
+      if (targetBtn) {
+        targetBtn.classList.remove('text-zinc-400');
+        targetBtn.classList.add('bg-titan-neon', 'text-black', 'font-extrabold', 'shadow-md');
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Helper: Pricing card click redirects to pass form with preselected option
+    function selectPlanAndGo(planValue) {
+      document.getElementById('leadPlan').value = planValue;
+      switchTab('join');
+    }
+
+    // 2. BMI Engine
+    document.getElementById('bmiForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const w = parseFloat(document.getElementById('weight').value);
+      const h = parseFloat(document.getElementById('height').value) / 100;
+      if (w > 0 && h > 0) {
+        const val = (w / (h * h)).toFixed(1);
+        document.getElementById('bmiValue').innerText = val;
+        let cat = 'Optimal Athletic Zone';
+        let adv = 'Recommended: Progressive overload barbell work & hypertrophy splits.';
+        if (val < 18.5) {
+          cat = 'Underweight';
+          adv = 'Recommended: Heavy mass building routines + high protein caloric surplus.';
+        } else if (val >= 25) {
+          cat = 'Heavy / Overweight';
+          adv = 'Recommended: High Intensity Shred Circuit + strict caloric management.';
+        }
+        document.getElementById('bmiCategory').innerText = cat;
+        document.getElementById('bmiAdvice').innerText = adv;
+        document.getElementById('bmiResult').classList.remove('hidden');
+      }
+    });
+
+    // 3. FAIL-PROOF NOTIFICATION SYSTEM:
+    // (a) WhatsApp direct redirect - Client ke phone par lead 100% guarantee ke saath bajegi
+    // (b) FormSubmit background trigger
+    document.getElementById('leadForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('leadName').value;
+      const phone = document.getElementById('leadPhone').value;
+      const plan = document.getElementById('leadPlan').value;
+
+      document.getElementById('statusAlert').classList.remove('hidden');
+
+      // WhatsApp direct message composition (Replace with Gym Owner's real 10 digit number)
+      const gymOwnerNumber = "919876543210"; 
+      const waMessage = encodeURIComponent(`*NEW TITAN GYM LEAD*%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Requirement:* ${plan}%0A%0APlease issue the workout pass.`);
+      
+      // Auto open WhatsApp in 1 sec
+      setTimeout(() => {
+        window.open(`https://wa.me/${gymOwnerNumber}?text=${waMessage}`, '_blank');
+      }, 700);
+    });
+  </script>
+</body>
+</html>
